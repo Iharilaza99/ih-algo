@@ -25,7 +25,7 @@
 	/* -----------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 	.container { 
-		background: rgba(0, 0, 0, 0.4); padding: 5%; border-radius: 10px; max-width: 400px; width: 85%; 
+		background: rgba(0, 0, 0, 0.4); padding: 5%; border-radius: 10px; max-width: 400px; width: 90%; 
 		box-shadow: 0 0 15px rgba(0,0,0,0.5); text-align: center; margin: auto;
 	}
 
@@ -46,7 +46,7 @@
 		.menu-btn { display: block; }
 	    nav { flex-direction: column; display: none }
 	    nav.show { display: flex; }
-	    .container { padding: 3em; }
+	    .container { padding: 2%; widht: auto;}
 	}
 
 	@keyframes fadeIn {
