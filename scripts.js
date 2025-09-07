@@ -1,9 +1,9 @@
 function toggleMenu() {
       const menu = document.getElementById("menu");
       menu.classList.toggle("show");
-    }
+}
 
-    const sections = {
+const sections = {
       math: "<h2>Mathématiques</h2><p>Formules, démonstrations et exercices.</p>",
       info: "<h2>Informatique</h2><p>Programmation, web, algorithmique.</p>",
       eco: 
