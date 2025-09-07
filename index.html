@@ -4,189 +4,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AHH Algo</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #1d2b64, #f8cdda);
-      color: white;
-    }
-
-    header {
-      width: 200px;
-      height: 90px;
-      text-align: center;
-      background: #0f2027;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-
-    main {
-      padding: 2rem;
-      text-align: center;
-      min-height: 300px;
-      animation: fadeIn 1s ease-in;
-    }
-    main h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    main p {
-      max-width: 700px;
-      margin: auto;
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
-    .container {
-      background: rgba(0, 0, 0, 0.4);
-      padding: 2em;
-      border-radius: 10px;
-      max-width: 400px;
-      width: 90%;
-      box-shadow: 0 0 15px rgba(0,0,0,0.5);
-      text-align: center;
-      margin: auto;
-    }
-    input[type="text"],
-    input[type="number"],
-    input[type="date"] {
-      width: 100%;
-      padding: 0.8em;
-      margin: 0.5em 0;
-      border: none;
-      border-radius: 5px;
-    }
-    button {
-      width: 100%;
-      padding: 0.8em;
-      background-color: #00c6ff;
-      border: none;
-      border-radius: 5px;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 1em;
-    }
-
-
-    .sidebar {
-      text-align: center;
-      width: 200px; background: #2c3e50; color: white; height: 100vh;
-      transition: width 0.3s, left 0.3s; overflow-x: hidden;
-      position: fixed; z-index: 1000; left: 0;
-    }
-    .sidebar.collapsed { width: 60px; }
-    .sidebar h2 {
-      text-align: center; padding: 1rem 0; margin: 0; font-size: 1.2rem;
-      white-space: nowrap; overflow: hidden;
-    }
-    .sidebar ul { list-style: none; padding: 0; margin: 0; }
-    .sidebar li {
-      padding: 0.8rem 1rem; cursor: pointer;
-      position: relative; transition: background 0.3s;
-    }
-    .sidebar li:hover { background: #3e5871; }
-    .submenu {
-      max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
-      background: #34495e;
-    }
-    .sidebar li.active .submenu {
-      max-height: 500px;
-    }
-    .submenu li { padding-left: 2rem; }
-    .toggle-btn {
-      position: absolute; top: 0.5rem; right: 0.5rem; background: none;
-      border: none; color: white; font-size: 1.5rem; cursor: pointer;
-    }
-    main {
-      flex: 1; margin-left: 250px; padding: 2rem; transition: margin-left 0.3s;
-    }
-    .sidebar.collapsed ~ main { margin-left: 60px; }
-    #main-content {
-      opacity: 0; transform: translateY(10px);
-      transition: opacity 0.3s, transform 0.3s;
-    }
-    #main-content.show {
-      opacity: 1; transform: translateY(0);
-    }
-    @media (max-width: 768px) {
-      #menu-toggle { display: block; }
-      .sidebar {
-        left: -250px;
-      }
-      .sidebar.show {
-        left: 0;
-      }
-      main { margin-left: 0; }
-      .container {
-        padding: 3em;
-      }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+  <title>iH Algo</title>
 </head>
 <body>
-  
-  <div class="sidebar" id="sidebar">
-    <header>
-      <h1>AHH Algo</h1>
+  <header>
+    <h1>iH Algo</h1>
+    <div class="menu-btn" onclick="toggleMenu()">☰ Menu</div>
   </header>
-    <button class="toggle-btn" onclick="toggleSidebar()">☰ </button>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <ul>
-      <li onclick="toggleSubmenu(this)">Mathématiques
-        <ul class="submenu">
-          <li onclick="loadContent('calcul')">Calcul</li>
-          <li onclick="loadContent('equation')">Équation</li>
-          <li onclick="loadContent('formule')">Formule</li>
-        </ul>
-      </li>
-      <li onclick="loadContent('informatique')">Informatique</li>
-      <li onclick="loadContent('economie')">Économie</li>
-      <li onclick="loadContent('gestion')">Gestion</li>
-      <li onclick="loadContent('bibliotheque')">Bibliothèque</li>
-      <li onclick="loadContent('loisirs')">Loisirs</li>
-    </ul>
-  </div>
 
-  <main>
-    <div id="main-content" class="show">
-      <h2>Bienvenue sur AHH Algo</h2>
-      <p>Cette plateforme vous donne accès à des ressources en mathématiques, informatique, économie, gestion, ainsi qu'une bibliothèque numérique et des activités de loisirs. Utilisez le menu pour naviguer.</p>
-    </div>
+  <nav id="menu">
+    <a onclick="showContent('recu')">Contôle Récu</a>
+    <!--
+    <a onclick="showContent('math')">Mathématiques</a>
+    <a onclick="showContent('info')">Informatique</a>
+    <a onclick="showContent('eco')">Économie</a>
+    <a onclick="showContent('gestion')">Gestion</a>
+    <a onclick="showContent('biblio')">Bibliothèque</a>
+    <a onclick="showContent('loisirs')">Loisirs</a>
+    -->
+  </nav>
+
+  <main id="content">
+    <h2>Bienvenue sur iH Algo</h2>
+    <p>Cette plateforme vous donne accès à des ressources en mathématiques, informatique, économie, gestion, ainsi qu'une bibliothèque numérique et des activités de loisirs. Utilisez le menu pour naviguer.</p>
+
+    <ul class="liste-main">
+      <li>Élément carré</li>
+      <li>Élément carré</li>
+      <li>Élément carré</li>
+    </ul>
+
+
+
+
   </main>
 
+  <footer>
+    <div class="auteur">
+      © 2025  iH Algo. Tous droits réservés.<br>
+      by Mr IHARILAZA Andriamizana, Lycée Andilamena, Madagascar
+      <br>
+      <br>
+      <div class="auteur_links">
+        <h2>Contacts</h2>
+        <a href="https://www.facebook.com/profile.php?id=61575869844356" target="_blank">
+          <img src="img/logo_fb.webp" alt="Facebook" width="30" height="30"> iH Algo
+        </a><br>
+        <a href="https://iharilaza99.github.io/ih-algo/" target="_blank">
+          <img src="img/logo_site.webp" alt="Site web" width="30" height="30"> iH Algo 
+        </a><br>
+        <a href="https://wa.me/261349922667" target="_blank">
+            <img src="img/logo_whatsapp.webp" alt="WhatsApp" width="30" height="30"> 261 34 99 226 67
+        </a><br>
+        <a href="tel:+261349922667">
+          <img src="img/logo_phone.jpg" alt="Téléphone" width="30" height="30"> +261 34 99 226 67
+        </a><br>
+        <a href="mailto:iharilazaa@gmail.com">
+          <img src="img/logo_mail.webp" alt="Email" width="30" height="30"> iharilazaa@gmail.com
+        </a>
+      </div>
+    </div>
+  </footer>
+
   <script>
-    function toggleSidebar() {
-      document.getElementById('sidebar').classList.toggle('collapsed');
-      document.getElementById('sidebar').classList.toggle('show');
+     
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("show");
     }
-    function toggleSubmenu(element) {
-      element.classList.toggle('active');
-    }
-    function loadContent(section) {
-      const content = {
-        calcul: "<h2>Calcul</h2><p>Exemples de calculs algorithmiques...</p>",
-        equation: "<h2>Équation</h2><p>Résolution d'équations simples...</p>",
-        formule: "<h2>Formule</h2><p>Formules mathématiques utiles...</p>",
-        informatique: "<h2>Informatique</h2><p>Concepts de base en informatique...</p>",
-        economie: "<h2>Économie</h2><p>Notions de base, micro/macroéconomie.</p>"+
-        "<h1>Plan d'ammortismemt a taux fixe avec remboursement constant</h1>"+
+
+    const sections = {
+      math: "<h2>Mathématiques</h2><p>Formules, démonstrations et exercices.</p>",
+      info: "<h2>Informatique</h2><p>Programmation, web, algorithmique.</p>",
+      eco: 
         '<div class="container">'+
+          "<h2>Économie</h2><p>Notions de base, micro/macroéconomie.</p>"+
+          "<h1>Plan d'ammortismemt a taux fixe avec remboursement constant</h1>"+
           '<h1>Details du credit</h1>'+
           '<input placeholder="Montant du pret en ariary" required type="number" id="pretInput" value="5000000">'+
           '<input placeholder='+'"'+"Taux d'interet annuel en %"+'"'+'required type="number" id="taux_interet" value="15">'+
@@ -197,77 +91,20 @@
           '<button class="btn" onclick="amortissememt()">Afficher</button>'+
         '</div>'
       ,
-        gestion: "<h2>Gestion</h2><p>Principes fondamentaux de la gestion...</p>",
-        bibliotheque: "<h2>Bibliothèque</h2><p>Documents et livres en ligne...</p>",
-        loisirs: "<h2>Loisirs</h2><p>Activités récréatives et éducatives...</p>"
-      };
-      const main = document.getElementById('main-content');
-      main.classList.remove('show');
-      setTimeout(() => {
-        main.innerHTML = content[section] || "<h2>Section</h2><p>Contenu non disponible.</p>";
-        main.classList.add('show');
-      }, 200);
-    }
 
-    /* Calcul d'ammortisment */
-    function amortissememt()
-    {
-      var pret = document.getElementById("pretInput").value;
-      var remboursement = document.getElementById("rembInput").value;
-      var text = "";
-      if(isNaN(pret) || isNaN(remboursement))
-      {
-        text = "Vérifier les valeurs que vous entrez ? ";
-      }
-      else
-      {
-        pret = parseFloat(pret);
-          remboursement = parseFloat(remboursement);
 
-          pret = pret*0.0789 + pret;
-          text = "<p>Pret : "+ pret +" Ariary<br> Montat du remboursement : "+ remboursement +" Ariary.</p>";
 
-          text = text +'<table align="center">'+"<thead><th>Rang</th><th>Date d'echeance</th>"+
-        "<th>Montat du remboursement</th><th>Interet</th><th>Remboursement du capital</th>"+
-        "<th>A.V.G</th><th>Solde compte</th></thead>";
-          var rang = 0;
-          var taux_interet = 15.0;
-          var taux_avg = 0.80;
-          
-          var interet = 0;
-          var capital = 0;
-          var avg = 0;
-          var solde = 0;
 
-          var jour = 15;
-          var mois = 4;
-          var annee = 2025;
-          var date = '';
-          mois = mois + 6;
 
-          solde = pret;
-          do {
-        rang = rang + 1;
-            interet = solde*taux_interet/1200;
-            avg = solde*taux_avg/1200;
-            capital = remboursement - interet - avg;
-            solde = solde - capital;
 
-            // Affichage et format de la date
-            mois ++;
-            mois = mois%12;
-            if(mois == 0){ mois = 12; }
-            if(mois == 1){ annee ++; }
-        if(mois<10){ date = jour+"/0"+mois+"/"+annee }
-        else{ date = jour+"/"+mois+"/"+annee; }
-            
-            if (solde < 0) { solde = 0; }
-            text = text + "<tr><td>"+rang+"</td><td>"+date+"</td><td>"+remboursement.toFixed(2)+"</td><td>"+interet.toFixed(2)+"</td><td>"+capital.toFixed(2)+"</td><td>"+avg.toFixed(2)+"</td><td>"+solde.toFixed(2)+"</td></tr>";
-          } 
-      while(solde>0);
-          text = text + "</table>";
-      }
-      document.getElementById('main-content').innerHTML = text;
+      gestion: "<h2>Gestion</h2><p>Management, finances et comptabilité.</p>"+
+        '<input type="text" name="username" placeholder="Nom d utilisateur" required>',
+      biblio: "<h2>Bibliothèque</h2><p>Ressources PDF, livres numériques.</p>",
+      loisirs: "<h2>Loisirs</h2><p>Culture, jeux, musique, détente.</p>"
+    };
+
+    function showContent(section) {
+      document.getElementById("content").innerHTML = sections[section];
     }
   </script>
 </body>
