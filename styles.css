@@ -46,7 +46,7 @@
 		.menu-btn { display: block; }
 	    nav { flex-direction: column; display: none }
 	    nav.show { display: flex; }
-	    .container { padding: 5px; widht: 50%; margin: 0px; }
+	    .container { padding: 5px; widht: 70%; margin: 0px; }
 	}
 
 	@keyframes fadeIn {
