@@ -3,8 +3,8 @@ const sections = {
 recu: 
       `<div class="container">
             <h2>Controle recu</h2>
-            <input placeholder="L'identifiant de votre recu" required type="number" id="pretInput">
-            <input placeholder="Votre code de recu" required type="number" id="pretInput">
+            <input placeholder="Identifiant du recu" required type="number" pattern="[0-9]{12}" id="id-recu">
+            <input placeholder="Code de recu" required type="number" pattern="[0-9]{12}" id="code-recu">
             <button class="btn" onclick="controle()">Verifier</button>
       </div>`,
 info: "<h2>Informatique</h2><p>Programmation, web, algorithmique.</p>",
