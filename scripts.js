@@ -20,13 +20,11 @@ eco:
 
 
 
+gestion: 
+      "<h2>Gestion</h2><p>Management, finances et comptabilité.</p>"+
+      '<input type="text" name="username" placeholder="Nom d utilisateur" required>',
+biblio: "<h2>Bibliothèque</h2><p>Ressources PDF, livres numériques.</p>",
+loisirs: "<h2>Loisirs</h2><p>Culture, jeux, musique, détente.</p>"
+};
 
-      gestion: "<h2>Gestion</h2><p>Management, finances et comptabilité.</p>"+
-        '<input type="text" name="username" placeholder="Nom d utilisateur" required>',
-      biblio: "<h2>Bibliothèque</h2><p>Ressources PDF, livres numériques.</p>",
-      loisirs: "<h2>Loisirs</h2><p>Culture, jeux, musique, détente.</p>"
-    };
-
-    function showContent(section) {
-      document.getElementById("content").innerHTML = sections[section];
-    }
+function showContent(section) { document.getElementById("content").innerHTML = sections[section]; }
