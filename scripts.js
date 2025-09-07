@@ -1,25 +1,20 @@
-function toggleMenu() {
-      const menu = document.getElementById("menu");
-      menu.classList.toggle("show");
-}
-
+function toggleMenu() { const menu = document.getElementById("menu"); menu.classList.toggle("show"); }
 const sections = {
-      math: "<h2>Mathématiques</h2><p>Formules, démonstrations et exercices.</p>",
-      info: "<h2>Informatique</h2><p>Programmation, web, algorithmique.</p>",
-      eco: 
-        '<div class="container">'+
-          "<h2>Économie</h2><p>Notions de base, micro/macroéconomie.</p>"+
-          "<h1>Plan d'ammortismemt a taux fixe avec remboursement constant</h1>"+
-          '<h1>Details du credit</h1>'+
-          '<input placeholder="Montant du pret en ariary" required type="number" id="pretInput" value="5000000">'+
-          '<input placeholder='+'"'+"Taux d'interet annuel en %"+'"'+'required type="number" id="taux_interet" value="15">'+
-          '<input placeholder='+'"'+"Taux d'assurance en %"+'"'+' required type="number" id="taux_assurance" value="0.80">'+
-          '<input placeholder="Periodicite durant remboursement" required type="text" id="" value="Mensuel">'+
-          '<input placeholder="Date du prett" required type="date" id="date_pret" value="05-05-2025"/>'+
-          '<input placeholder="Montant du remboursement en ariary" required type="text" id="rembInput" value="140988">'+
-          '<button class="btn" onclick="amortissememt()">Afficher</button>'+
-        '</div>'
-      ,
+math: "<h2>Mathématiques</h2><p>Formules, démonstrations et exercices.</p>",
+info: "<h2>Informatique</h2><p>Programmation, web, algorithmique.</p>",
+eco: 
+      '<div class="container">'+
+      "<h2>Économie</h2><p>Notions de base, micro/macroéconomie.</p>"+
+      "<h1>Plan d'ammortismemt a taux fixe avec remboursement constant</h1>"+
+      '<h1>Details du credit</h1>'+
+      '<input placeholder="Montant du pret en ariary" required type="number" id="pretInput" value="5000000">'+
+      '<input placeholder='+'"'+"Taux d'interet annuel en %"+'"'+'required type="number" id="taux_interet" value="15">'+
+      '<input placeholder='+'"'+"Taux d'assurance en %"+'"'+' required type="number" id="taux_assurance" value="0.80">'+
+      '<input placeholder="Periodicite durant remboursement" required type="text" id="" value="Mensuel">'+
+      '<input placeholder="Date du prett" required type="date" id="date_pret" value="05-05-2025"/>'+
+      '<input placeholder="Montant du remboursement en ariary" required type="text" id="rembInput" value="140988">'+
+      '<button class="btn" onclick="amortissememt()">Afficher</button>'+
+      '</div>',
 
 
 
