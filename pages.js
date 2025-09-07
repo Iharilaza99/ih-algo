@@ -5,6 +5,7 @@ recu:
             <h2>Controle recu</h2>
             <input placeholder="L'identifiant de votre recu" required type="number" id="pretInput">
             <input placeholder="Votre code de recu" required type="number" id="pretInput">
+            <button class="btn" onclick="controle()">Verifier</button>
       </div>`,
 info: "<h2>Informatique</h2><p>Programmation, web, algorithmique.</p>",
 eco: 
