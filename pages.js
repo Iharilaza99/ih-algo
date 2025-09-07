@@ -1,12 +1,19 @@
 function toggleMenu() { const menu = document.getElementById("menu"); menu.classList.toggle("show"); }
+
 const sections = {
 recu: 
-      `<div class="container">
-            <h2>Controle recu</h2>
-            <input placeholder="Identifiant du recu" required type="number" pattern="[0-9]{12}" id="id-recu">
-            <input placeholder="Code de recu" required type="number" pattern="[0-9]{12}" id="code-recu">
-            <button class="btn" onclick="controle()">Verifier</button>
-      </div>`,
+  `<div class="container">
+    <h2>Contôle Récu</h2>
+    <input placeholder="Identifiant du recu" required type="code" pattern="[0-9]{12}" id="id">
+    <input placeholder="Code de recu" required type="code" pattern="[0-9]{12}" id="code">
+    <button class="btn" onclick="controle()">Valider</button>
+  </div>`,
+
+
+
+
+
+  
 info: "<h2>Informatique</h2><p>Programmation, web, algorithmique.</p>",
 eco: 
       '<div class="container">'+
