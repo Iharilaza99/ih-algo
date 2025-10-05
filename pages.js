@@ -8,10 +8,11 @@ recu:
     <input placeholder="Code de recu" required type="code" pattern="[0-9]{12}" id="code">
     <button class="btn" onclick="controle()">Valider</button>
   </div>`,
-  biblio: `<h2>Bibliothèque</h2><p>Ressources PDF, livres numériques.</p>
-  <a href="Français_Malagasy.pdf">Français Malagasy<a>`,
+biblio: `<h2>Bibliothèque</h2><p>Ressources PDF, livres numériques.</p>
+  <a href="fr_mg.pdf">Français Malagasy<a>`,
 
-//////////////////////////////////////////////////////////////////////////////// 
+
+
 info: "<h2>Informatique</h2><p>Programmation, web, algorithmique.</p>",
 eco: 
       '<div class="container">'+
@@ -33,3 +34,11 @@ loisirs: "<h2>Loisirs</h2><p>Culture, jeux, musique, détente.</p>"
 };
 
 function showContent(section) { document.getElementById("content").innerHTML = sections[section]; }
+
+document.addEventListener('keydown', function(event) {
+    // Vérifie si Ctrl ou Cmd est enfoncé et que la touche 'P' est enfoncée
+    if ((event.ctrlKey || event.metaKey) && event.key === 'p') {
+        event.preventDefault(); // Empêche l'action par défaut (impression)
+        alert('L\'impression est désactivée sur cette page.'); // Affiche un message
+    }
+});
