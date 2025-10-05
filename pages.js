@@ -8,12 +8,10 @@ recu:
     <input placeholder="Code de recu" required type="code" pattern="[0-9]{12}" id="code">
     <button class="btn" onclick="controle()">Valider</button>
   </div>`,
+  biblio: `<h2>Bibliothèque</h2><p>Ressources PDF, livres numériques.</p>
+  <a href="Français_Malagasy.pdf">Français Malagasy<a>`,
 
-
-
-
-
-  
+//////////////////////////////////////////////////////////////////////////////// 
 info: "<h2>Informatique</h2><p>Programmation, web, algorithmique.</p>",
 eco: 
       '<div class="container">'+
@@ -31,7 +29,6 @@ eco:
 gestion: 
       "<h2>Gestion</h2><p>Management, finances et comptabilité.</p>"+
       '<input type="text" name="username" placeholder="Nom d utilisateur" required>',
-biblio: "<h2>Bibliothèque</h2><p>Ressources PDF, livres numériques.</p>",
 loisirs: "<h2>Loisirs</h2><p>Culture, jeux, musique, détente.</p>"
 };
 
