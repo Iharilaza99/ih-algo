@@ -16,7 +16,7 @@ function controle() {
     }
     else {
       number = afficheCode(getCode(code,id));
-      if(){
+      if(getExiste(number)){
         text = `
         <div class="container">
           <h3>INFORMATION DE VOTRE RECU</h3>
@@ -42,7 +42,7 @@ function myKey(key) {
     '3': key3
   };
 }
-function getExiste(nombre){
+function getExiste(number){
 	const val = Math.floor(number);
 	const val1 = number - val;
   	if(val1 == 0) { return true; }
