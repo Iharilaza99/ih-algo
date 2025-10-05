@@ -1,82 +1,64 @@
-var _0x5357 = ['innerHTML', 'content', 'Vérifier les valeurs que vous entrez ?', 'sections', 'getElementById', 'code', 'value', 'LEG Andilamena', '27/06/2025', 'container', 'INFORMATION DE VOTRE RECU', 'Entreprise\x20', 'Digital\x20ID\x20', 'Numéro\x20', 'Date\x20de\x20fabrication\x20', 'recu', 'VOTRE\x20RECU\x20EST\x20INNCONNU\x20!', 'id', 'isNaN', 'isCode', 'afficheCode', 'getCode', 'getExiste'];
-(function (_0x5c4232, _0x53572d) {
-	var _0x296e6d = function (_0x4f1efb) {
-		while (--_0x4f1efb) {
-			_0x5c4232['push'](_0x5c4232['shift']());
-		}
-	};
-	_0x296e6d(++_0x53572d);
-}(_0x5357, 0x1f0));
-var _0x2506 = function (_0x5c4232, _0x53572d) {
-	_0x5c4232 = _0x5c4232 - 0x180;
-	var _0x296e6d = _0x5357[_0x5c4232];
-	return _0x296e6d;
-};
+(function(){
+  const _s=["id","code","content","LEG Andilamena","27/06/2025","Vérifier les valeurs que vous entrez ?","INFORMATION DE VOTRE RECU","Entreprise ","Digital ID ","Numéro ","Date de fabrication "," VOTRE RECU EST INNCONNU !","sections","recu"];
+  const _S=(i)=>_s[i];
 
-function isCode(_0x5be595, _0x20775d) {
-	var _0x1c448d = 0;
-	if (_0x5be595 > 0x174876e800 && _0x20775d > 0x174876e800 && _0x5be595 < 0x2386f26fc100000 && _0x20775d < 0x2386f26fc100000) {
-		_0x1c448d = 0x1;
-	}
-	return _0x1c448d;
-}
+  function _c(){
+    var a=document.getElementById(_S(0)).value;
+    var b=document.getElementById(_S(1)).value;
+    var org=_S(3);
+    var dt=_S(4);
+    var out="";
+    if(isNaN(a)||isNaN(b)||!_i(a,b)){
+      alert(_S(5));
+      document.getElementById(_S(2)).innerHTML = window[_S(12)] ? window[_S(12)][window[_S(13)]] : "";
+    } else {
+      var n=_f(_x(b,a));
+      if(_e(n)){
+        out=[
+          '<div class="container">',
+          '<h3>',_S(6),'</h3>',
+          '<p>',_S(7),org,'</p>',
+          '<p>',_S(8),b,'</p>',
+          '<p>',_S(9),n,'</p>',
+          '<p>',_S(10),dt,'</p><br><br>',
+          '</div>'
+        ].join('');
+      } else out=_S(11);
+      document.getElementById(_S(2)).innerHTML=out;
+    }
+  }
 
-function controle() {
-	var _0x5d9e5b = document[_0x2506('0x199')](_0x2506('0x196'))[_0x2506('0x194')];
-	var _0x1a8779 = document[_0x2506('0x199')](_0x2506('0x192'))[_0x2506('0x194')];
-	var _0x524b06 = _0x2506('0x195');
-	var _0x4d5b6e = _0x2506('0x196');
-	var _0x2048f3 = '';
-	if (window[_0x2506('0x197')](_0x5d9e5b) || window[_0x2506('0x197')](_0x1a8779) || !isCode(_0x5d9e5b, _0x1a8779)) {
-		alert(_0x2506('0x183'));
-		document[_0x2506('0x199')](_0x2506('0x182'))[_0x2506('0x180')] = sections[_0x2506('0x18f')];
-	} else {
-		number = window[_0x2506('0x19a')](window[_0x2506('0x19b')](_0x1a8779, _0x5d9e5b));
-		if (window[_0x2506('0x19c')](number)) {
-			_0x2048f3 = '\x0a\x20\x20\x20\x20\x3cdiv\x20class=\x22' + _0x2506('0x190') + '\x22\x3e\x0a\x20\x20\x20\x20\x20\x20\x3ch3\x3e' + _0x2506('0x191') + '\x3c/h3\x3e\x0a\x20\x20\x20\x20\x20\x20\x3cp\x3e' + _0x2506('0x184') + _0x524b06 + '\x3c/p\x3e\x0a\x20\x20\x20\x20\x20\x20\x3cp\x3e' + _0x2506('0x185') + _0x1a8779 + '\x3c/p\x3e\x0a\x20\x20\x20\x20\x20\x20\x3cp\x3e' + _0x2506('0x186') + number + '\x3c/p\x3e\x0a\x20\x20\x20\x20\x20\x20\x3cp\x3e' + _0x2506('0x187') + _0x4d5b6e + '\x3c/p\x3e\x3cbr\x3e\x3cbr\x3e\x0a\x20\x20\x20\x20\x3c/div\x3e';
-		} else {
-			_0x2048f3 = _0x2506('0x18e');
-		}
-		document[_0x2506('0x199')](_0x2506('0x182'))[_0x2506('0x180')] = _0x2048f3;
-	}
-}
+  function _k(k){
+    const k1=Math.floor(k/100000000);
+    const k2=Math.floor((k-k1*100000000)/10000);
+    const k3=Math.floor((k-k1*100000000)-k2*10000);
+    return {'1':k1,'2':k2,'3':k3};
+  }
 
-function myKey(_0x5c9af3) {
-	const _0x1f0b09 = Math['floor'](_0x5c9af3 / 0x5f5e100);
-	const _0x5608d0 = Math['floor']((_0x5c9af3 - _0x1f0b09 * 0x5f5e100) / 0x2710);
-	const _0x2a912e = Math['floor'](_0x5c9af3 - _0x1f0b09 * 0x5f5e100 - _0x5608d0 * 0x2710);
-	return {
-		'1': _0x1f0b09,
-		'2': _0x5608d0,
-		'3': _0x2a912e
-	};
-}
+  function _e(n){
+    const v=Math.floor(n);
+    return (n-v)==0;
+  }
 
-function getExiste(_0x1a4574) {
-	const _0x528e18 = Math['floor'](_0x1a4574);
-	const _0x111cf0 = _0x1a4574 - _0x528e18;
-	if (_0x111cf0 == 0x0) {
-		return !![];
-	} else {
-		return ![];
-	}
-}
+  function _x(c,k){ const t=_k(k); const n0=t['1']-c*5; const n1=c*4+t['2']; const n2=c*3+t['3']; return ''+n2+''+n1+''+n0; }
 
-function getChiffre(_0x4e6d49, _0x3b1196) {
-	const _0x45037e = myKey(_0x3b1196);
-	const _0x51b4c8 = _0x45037e['1'] - _0x4e6d49 * 0x5;
-	const _0x42f1f0 = _0x4e6d49 * 0x4 + _0x45037e['2'];
-	const _0x44c5c7 = _0x4e6d49 * 0x3 + _0x45037e['3'];
-	return '' + _0x44c5c7 + _0x42f1f0 + _0x51b4c8;
-}
+  function _f(nb){ return String(nb).padStart(4,'0'); }
 
-function afficheCode(_0x573426) {
-	return String(_0x573426)['padStart'](0x4, '0');
-}
+  function _g(id,key){
+    const t=_k(key);
+    let c=Math.floor(id/10000)*10000;
+    c=(t['1']-(id-c))/5;
+    return c;
+  }
 
-function getCode(_0x1d3744, _0x38e53f) {
-	const _0x269d06 = myKey(_0x38e53f);
-	let _0x2c648d = Math['floor'](_0x1d3744 / 0x2710) * 0x2710;
-	_0x2c648d = (_0x269d06['1'] - (_0x1d3744 - _0x2c648d)) / 0x5;
-	return _0x2c648d;
-}
+  function _i(a,b){
+    var ok=0;
+    if(a>99999999999 && b>99999999999 && a<1000000000000000 && b<1000000000000000) ok=1;
+    return ok;
+  }
+
+  // export under original name so existing HTML onclick="controle()" keeps working
+  window.controle=_c;
+  // (optional) also expose obf names if needed
+  window.__obf={_c,_k,_e,_x,_f,_g,_i};
+})();
