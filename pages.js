@@ -9,7 +9,7 @@ recu:
     <button class="btn" onclick="controle()">Valider</button>
   </div>`,
 biblio: `<h2>Bibliothèque</h2><p>Ressources PDF, livres numériques.</p>
-  <a href="fr_mg.pdf">Français Malagasy<a>`,
+  <a href="Français_Malagasy.pdf">Français Malagasy<a>`,
 
 
 
