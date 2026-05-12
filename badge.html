@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="mg">
 <head>
@@ -22,7 +21,7 @@
             align-items: center;
             background-color: var(--bg-light);
             margin: 0;
-            padding: 20px;
+            padding: 15px;
             gap: 20px;
         }
 
@@ -37,6 +36,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
+            box-sizing: border-box;
         }
 
         .input-group {
@@ -54,10 +54,11 @@
         }
 
         .input-group input {
-            padding: 8px;
+            padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
             outline: none;
+            font-size: 14px;
         }
 
         /* Ny bokotra */
@@ -78,15 +79,23 @@
             border-radius: 6px;
             cursor: pointer;
             transition: 0.3s;
+            width: 100%;
         }
 
         .btn-download:hover { background-color: #219653; }
 
-        /* Badge Layout */
+        /* Badge Layout (Base ho an'ny PC) */
+        .badge-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            overflow: visible;
+        }
+
         .badge {
             width: 650px;
             height: 450px;
-            background: white !important;
+            background-color: #ffffff !important;
             border-radius: 12px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.2);
             display: flex;
@@ -94,6 +103,8 @@
             overflow: hidden;
             position: relative;
             border: 1px solid #ccc;
+            box-sizing: border-box;
+            transform-origin: top center;
         }
 
         .watermark {
@@ -105,19 +116,21 @@
             transform: rotate(-15deg);
             pointer-events: none;
             font-weight: 900;
+            z-index: 1;
         }
 
         .top-bar {
             height: 8px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)) !important;
+            background: linear-gradient(90deg, #1a3a5f, #d4af37) !important;
         }
 
         .header {
             display: flex;
             align-items: center;
             padding: 15px 20px;
-            background-color: white !important;
+            background-color: #ffffff !important;
             border-bottom: 1px solid #eee;
+            z-index: 2;
         }
 
         .logo { width: 75px; height: 75px; object-fit: contain; }
@@ -130,7 +143,7 @@
         }
 
         .header-content h3 {
-            margin: 0; font-size: 14px; color: var(--primary-color) !important;
+            margin: 0; font-size: 14px; color: #1a3a5f !important;
             letter-spacing: 1px; font-weight: 600;
         }
 
@@ -140,34 +153,42 @@
         }
 
         .body {
-            display: flex; padding: 20px 30px; flex-grow: 1;
-            background: radial-gradient(circle at 50% 50%, #ffffff 0%, #f2f2f2 100%) !important;
+            display: flex; 
+            padding: 20px 30px; 
+            flex-grow: 1;
+            background-color: #f8f9fa !important;
+            z-index: 2;
         }
 
         .photo-container { margin-right: 20px; }
 
-        .photo {
-            width: 180px; height: 220px;
-            border: 3px solid var(--primary-color) !important;
-            border-radius: 8px; object-fit: cover;
+        .photo-div {
+            width: 180px; 
+            height: 220px;
+            border: 3px solid #1a3a5f !important;
+            border-radius: 8px;
+            background-image: url('photo.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             background-color: #eee !important;
         }
 
         .info { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
 
         .name-display {
-            font-size: 28px; font-weight: 900; color: var(--primary-color) !important;
-            margin: 0 0 5px 0; border-bottom: 2px solid var(--secondary-color) !important;
+            font-size: 28px; font-weight: 900; color: #1a3a5f !important;
+            margin: 0 0 5px 0; border-bottom: 2px solid #d4af37 !important;
             text-transform: uppercase;
         }
 
         .value {
-            font-size: 26px; color: var(--text-dark) !important;
+            font-size: 26px; color: #2c3e50 !important;
             font-weight: 700; margin-bottom: 5px;
         }
 
         .im-tag {
-            display: inline-block; background: var(--primary-color) !important;
+            display: inline-block; background-color: #1a3a5f !important;
             color: white !important; padding: 3px 12px;
             border-radius: 4px; font-weight: bold; font-size: 22px; margin-top: 10px;
         }
@@ -175,6 +196,36 @@
         .footer {
             background-color: #570202 !important; color: white !important;
             padding: 10px 30px; font-size: 12px; font-weight: bold;
+            z-index: 2;
+        }
+
+        /* ---------------------------------------------
+           HO AN'NY TELEPHONE SY ECRAN KELY (RESPONSIVE)
+        ------------------------------------------------ */
+        @media (max-width: 680px) {
+            .editor-container {
+                grid-template-columns: 1fr; /* Lasa 1 colonne ny formulaire */
+                gap: 12px;
+            }
+            .input-group.full { grid-column: span 1; }
+            .actions { grid-column: span 1; }
+            
+            /* Amidinay kely ny carte eo amin'ny ecran mba ho hita tsara */
+            .badge-wrapper {
+                height: 250px; /* mametraka haavo raikitra satria miha-kely ilay sary */
+            }
+            .badge {
+                transform: scale(0.5); /* Amidinay ho antsasany ny habeny eo amin'ny finday */
+            }
+        }
+
+        @media (max-width: 400px) {
+            .badge-wrapper {
+                height: 200px;
+            }
+            .badge {
+                transform: scale(0.42); /* Amidinay mbola kely kokoa ho an'ny finday kely dia kely */
+            }
         }
     </style>
 </head>
@@ -200,54 +251,55 @@
         </div>
         <div class="input-group">
             <label>Laharana IM</label>
-            <input type="text" id="inIM" value="764 702" oninput="updateBadge()">
+            <input type="text" id="inIM" value="000 000" oninput="updateBadge()">
         </div>
         <div class="actions">
             <button class="btn-download" onclick="alaoSary()">Hanalana azy ho sary (JPG)</button>
         </div>
     </div>
 
-    <div class="badge" id="myBadge">
-        <div class="watermark">MEN</div>
-        <div class="top-bar"></div>
+    <div class="badge-wrapper">
+        <div class="badge" id="myBadge">
+            <div class="watermark">MEN</div>
+            <div class="top-bar"></div>
 
-        <div class="header">
-            <img src="drapeau.png" alt="Logo" class="logo">
-            <div class="header-content">
-                <h3>REPOBLIKAN'I MADAGASIKARA</h3>
-                <p>Ministère de l'Éducation Nationale</p>
-                <p>DREN ALAOTRA MANGORO | CISCO ANDILAMENA</p>
-                <p>ZAP ANDILAMENA CENTRE</p>
-                <p class="school-name">LYCÉE ANDILAMENA</p>
+            <div class="header">
+                <img src="drapeau.png" alt="Logo" class="logo">
+                <div class="header-content">
+                    <h3>REPOBLIKAN'I MADAGASIKARA</h3>
+                    <p>Ministère de l'Éducation Nationale</p>
+                    <p>DREN ALAOTRA MANGORO | CISCO ANDILAMENA</p>
+                    <p>ZAP ANDILAMENA CENTRE</p>
+                    <p class="school-name">LYCÉE ANDILAMENA</p>
+                </div>
+                <img src="men.jpg" alt="Logo" class="logo">
             </div>
-            <img src="men.jpg" alt="Logo" class="logo">
-        </div>
 
-        <div class="body">
-            <div class="photo-container">
-                <img src="photo.jpeg" id="displayPhoto" alt="Sary" class="photo">
-            </div>
-            
-            <div class="info">
-                <div class="name-display" id="displayName">IHARILAZA ANDRIAMIZANA</div>
-                <div class="job-box">
-                    <div class="value" id="displayJob">Enseignant</div>
-                    <div class="value" id="displaySubject" style="color: #2980b9 !important;">MATHEMATIQUES</div>
-                    <div class="im-tag" id="displayIM">IM : 764 702</div>
+            <div class="body">
+                <div class="photo-container">
+                    <div id="displayPhotoDiv" class="photo-div"></div>
+                </div>
+                
+                <div class="info">
+                    <div class="name-display" id="displayName">IHARILAZA ANDRIAMIZANA</div>
+                    <div class="job-box">
+                        <div class="value" id="displayJob">Enseignant</div>
+                        <div class="value" id="displaySubject" style="color: #2980b9 !important;">MATHEMATIQUES</div>
+                        <div class="im-tag" id="displayIM">IM : 000 000</div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="footer">CARTE PROFESSIONNELLE</div>
+            <div class="footer">CARTE PROFESSIONNELLE</div>
+        </div>
     </div>
 
     <script>
-        // Fonction hikarakarana ny sary
         function previewSary(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function(e) {
-                    document.getElementById('displayPhoto').src = e.target.result;
+                    document.getElementById('displayPhotoDiv').style.backgroundImage = "url('" + e.target.result + "')";
                 }
                 reader.readAsDataURL(input.files[0]);
             }
@@ -264,16 +316,34 @@
             const badge = document.getElementById('myBadge');
             const anarana = document.getElementById('inName').value;
             
+            // Fetsy kely: esorina vetivety ny zoom/scale amin'ny finday vao alaina sary mba tsy ho kely ny JPG mivoaka
+            const finday = window.matchMedia("(max-width: 680px)").matches;
+            if (finday) {
+                badge.style.transform = "none";
+            }
+
             html2canvas(badge, {
-                scale: 3, // HD be ny vokany
+                scale: 3, 
                 useCORS: true,
-                allowTaint: true
+                allowTaint: true,
+                backgroundColor: '#ffffff',
+                imageTimeout: 0,
+                logging: false
             }).then(canvas => {
                 const imgData = canvas.toDataURL('image/jpeg', 0.98);
                 const link = document.createElement('a');
                 link.download = 'Carte_' + anarana.replace(/\s+/g, '_') + '.jpg';
                 link.href = imgData;
                 link.click();
+                
+                // Averina amin'ny laoniny ilay scale rehefa vita ny download raha finday
+                if (finday) {
+                    if (window.matchMedia("(max-width: 400px)").matches) {
+                        badge.style.transform = "scale(0.42)";
+                    } else {
+                        badge.style.transform = "scale(0.5)";
+                    }
+                }
             });
         }
     </script>
