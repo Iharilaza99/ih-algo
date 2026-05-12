@@ -23,6 +23,8 @@
             margin: 0;
             padding: 15px;
             gap: 20px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         /* Stylin'ny Formulaire */
@@ -84,14 +86,19 @@
 
         .btn-download:hover { background-color: #219653; }
 
-        /* Badge Layout (Base ho an'ny PC) */
-        .badge-wrapper {
+        /* Namboarina ity wrapper ity mba hahafahana manakisaka (scroll) 
+           ilay carte amin'ny finday nefa tsy miova habe ilay carte
+        */
+        .badge-container-scroll {
             width: 100%;
-            display: flex;
-            justify-content: center;
-            overflow: visible;
+            max-width: 650px;
+            overflow-x: auto; /* Ity no mampisy an'ilay dika fisaka */
+            padding: 10px 0 20px 0;
+            display: block;
+            -webkit-overflow-scrolling: touch; /* Ho an'ny iPhone mba halama tsara */
         }
 
+        /* Tazomina raikitra ho an'ny PC sy Finday ny haben'ny Carte */
         .badge {
             width: 650px;
             height: 450px;
@@ -104,7 +111,6 @@
             position: relative;
             border: 1px solid #ccc;
             box-sizing: border-box;
-            transform-origin: top center;
         }
 
         .watermark {
@@ -154,7 +160,7 @@
 
         .body {
             display: flex; 
-            padding: 20px 30px; 
+            padding: 10px 10px; 
             flex-grow: 1;
             background-color: #f8f9fa !important;
             z-index: 2;
@@ -199,33 +205,14 @@
             z-index: 2;
         }
 
-        /* ---------------------------------------------
-           HO AN'NY TELEPHONE SY ECRAN KELY (RESPONSIVE)
-        ------------------------------------------------ */
+        /* Responsive ho an'ny Formulaire fotsiny */
         @media (max-width: 680px) {
             .editor-container {
-                grid-template-columns: 1fr; /* Lasa 1 colonne ny formulaire */
+                grid-template-columns: 1fr;
                 gap: 12px;
             }
             .input-group.full { grid-column: span 1; }
             .actions { grid-column: span 1; }
-            
-            /* Amidinay kely ny carte eo amin'ny ecran mba ho hita tsara */
-            .badge-wrapper {
-                height: 250px; /* mametraka haavo raikitra satria miha-kely ilay sary */
-            }
-            .badge {
-                transform: scale(0.5); /* Amidinay ho antsasany ny habeny eo amin'ny finday */
-            }
-        }
-
-        @media (max-width: 400px) {
-            .badge-wrapper {
-                height: 200px;
-            }
-            .badge {
-                transform: scale(0.42); /* Amidinay mbola kely kokoa ho an'ny finday kely dia kely */
-            }
         }
     </style>
 </head>
@@ -251,14 +238,14 @@
         </div>
         <div class="input-group">
             <label>Laharana IM</label>
-            <input type="text" id="inIM" value="000 000" oninput="updateBadge()">
+            <input type="text" id="inIM" value="777 777" oninput="updateBadge()">
         </div>
         <div class="actions">
             <button class="btn-download" onclick="alaoSary()">Tehirizo ho sary (JPG)</button>
         </div>
     </div>
 
-    <div class="badge-wrapper">
+    <div class="badge-container-scroll">
         <div class="badge" id="myBadge">
             <div class="watermark">MEN</div>
             <div class="top-bar"></div>
@@ -285,7 +272,7 @@
                     <div class="job-box">
                         <div class="value" id="displayJob">Enseignant</div>
                         <div class="value" id="displaySubject" style="color: #2980b9 !important;">MATHEMATIQUES</div>
-                        <div class="im-tag" id="displayIM">IM : 000 000</div>
+                        <div class="im-tag" id="displayIM">IM : 777 777</div>
                     </div>
                 </div>
             </div>
@@ -316,12 +303,6 @@
             const badge = document.getElementById('myBadge');
             const anarana = document.getElementById('inName').value;
             
-            // Fetsy kely: esorina vetivety ny zoom/scale amin'ny finday vao alaina sary mba tsy ho kely ny JPG mivoaka
-            const finday = window.matchMedia("(max-width: 680px)").matches;
-            if (finday) {
-                badge.style.transform = "none";
-            }
-
             html2canvas(badge, {
                 scale: 3, 
                 useCORS: true,
@@ -335,15 +316,6 @@
                 link.download = 'Carte_' + anarana.replace(/\s+/g, '_') + '.jpg';
                 link.href = imgData;
                 link.click();
-                
-                // Averina amin'ny laoniny ilay scale rehefa vita ny download raha finday
-                if (finday) {
-                    if (window.matchMedia("(max-width: 400px)").matches) {
-                        badge.style.transform = "scale(0.42)";
-                    } else {
-                        badge.style.transform = "scale(0.5)";
-                    }
-                }
             });
         }
     </script>
