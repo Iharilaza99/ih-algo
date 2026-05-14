@@ -237,8 +237,8 @@
             <input type="text" id="inSubject" value="MATHEMATIQUES" oninput="updateBadge()">
         </div>
         <div class="input-group">
-            <label>Laharana IM</label>
-            <input type="text" id="inIM" value="777 777" oninput="updateBadge()">
+            <label>Laharana IM/CIN</label>
+            <input type="text" id="inIM" value="IM : 777 777" oninput="updateBadge()">
         </div>
         <div class="actions">
             <button class="btn-download" onclick="alaoSary()">Tehirizo ho sary (JPG)</button>
@@ -296,7 +296,7 @@
             document.getElementById('displayName').innerText = document.getElementById('inName').value;
             document.getElementById('displayJob').innerText = document.getElementById('inJob').value;
             document.getElementById('displaySubject').innerText = document.getElementById('inSubject').value;
-            document.getElementById('displayIM').innerText = "IM : " + document.getElementById('inIM').value;
+            document.getElementById('displayIM').innerText = document.getElementById('inIM').value;
         }
 
         function alaoSary() {
